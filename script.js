@@ -19,6 +19,29 @@ modal.onclick = (e) => {
   }
 }
 
+// COUNTDOWN
+const targetDate = new Date("April 18, 2026 06:30:00 GMT+0700").getTime();
+
+const countdown = () => {
+  const now = new Date().getTime();
+  const gap = targetDate - now;
+
+  if (gap <= 0) return;
+
+  const days = Math.floor(gap / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((gap / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((gap / (1000 * 60)) % 60);
+  const seconds = Math.floor((gap / 1000) % 60);
+
+  document.getElementById("days").innerText = days;
+  document.getElementById("hours").innerText = hours;
+  document.getElementById("minutes").innerText = minutes;
+  document.getElementById("seconds").innerText = seconds;
+};
+
+setInterval(countdown, 1000);
+countdown();
+
 // tambahan: ESC keyboard
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
