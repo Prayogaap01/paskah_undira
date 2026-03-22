@@ -41,6 +41,10 @@ const countdown = () => {
 
 setInterval(countdown, 1000);
 countdown();
+document.addEventListener("click", () => {
+  const music = document.getElementById("bgMusic");
+  music.play();
+}, { once: true });
 
 // tambahan: ESC keyboard
 document.addEventListener("keydown", (e) => {
